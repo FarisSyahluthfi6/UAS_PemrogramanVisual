@@ -1,0 +1,131 @@
+object TfrmLogin: TTfrmLogin
+  Left = 660
+  Height = 288
+  Top = 283
+  Width = 365
+  Caption = 'Login'
+  ClientHeight = 288
+  ClientWidth = 365
+  LCLVersion = '3.0.0.3'
+  object Label1: TLabel
+    Left = 166
+    Height = 30
+    Top = 32
+    Width = 56
+    Caption = 'Login'
+    Font.CharSet = ANSI_CHARSET
+    Font.Height = -21
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object BLogin: TButton
+    Left = 113
+    Height = 30
+    Top = 170
+    Width = 75
+    Caption = 'Login'
+    Font.CharSet = ANSI_CHARSET
+    Font.Height = -16
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    ParentFont = False
+    TabOrder = 0
+    OnClick = BLoginClick
+  end
+  object Label2: TLabel
+    Left = 32
+    Height = 21
+    Top = 86
+    Width = 71
+    Caption = 'Username'
+    Font.CharSet = ANSI_CHARSET
+    Font.Height = -16
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    ParentColor = False
+    ParentFont = False
+  end
+  object Label3: TLabel
+    Left = 37
+    Height = 21
+    Top = 134
+    Width = 66
+    Caption = 'Password'
+    Font.CharSet = ANSI_CHARSET
+    Font.Height = -16
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    ParentColor = False
+    ParentFont = False
+  end
+  object EUsername: TEdit
+    Left = 113
+    Height = 29
+    Top = 85
+    Width = 176
+    Font.CharSet = ANSI_CHARSET
+    Font.Height = -16
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    ParentFont = False
+    TabOrder = 1
+    TextHint = 'Masukkan username'
+  end
+  object EPassword: TEdit
+    Left = 112
+    Height = 29
+    Top = 128
+    Width = 177
+    EchoMode = emPassword
+    Font.CharSet = ANSI_CHARSET
+    Font.Height = -16
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    ParentFont = False
+    PasswordChar = '*'
+    TabOrder = 2
+    TextHint = 'Masukkan password'
+  end
+  object BExit: TButton
+    Left = 214
+    Height = 30
+    Top = 170
+    Width = 75
+    Caption = 'Exit'
+    Font.CharSet = ANSI_CHARSET
+    Font.Height = -16
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    ParentFont = False
+    TabOrder = 3
+    OnClick = BExitClick
+  end
+  object SQLQuery1: TSQLQuery
+    FieldDefs = <>
+    Database = SQLConnector1
+    Transaction = SQLTransaction1
+    Params = <>
+    Macros = <>
+    Left = 269
+    Top = 218
+  end
+  object SQLConnector1: TSQLConnector
+    Connected = True
+    LoginPrompt = False
+    DatabaseName = 'penjualan'
+    KeepConnection = False
+    Transaction = SQLTransaction1
+    ConnectorType = 'ODBC'
+    Left = 38
+    Top = 205
+  end
+  object SQLTransaction1: TSQLTransaction
+    Active = True
+    Database = SQLConnector1
+    Left = 154
+    Top = 230
+  end
+end

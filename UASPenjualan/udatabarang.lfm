@@ -1,0 +1,198 @@
+object TfrmDataBarang: TTfrmDataBarang
+  Left = 328
+  Height = 469
+  Top = 171
+  Width = 644
+  Caption = 'Data Master'
+  ClientHeight = 469
+  ClientWidth = 644
+  OnClose = FormClose
+  OnCreate = FormCreate
+  LCLVersion = '3.0.0.3'
+  object LJudul: TLabel
+    Left = 269
+    Height = 32
+    Top = 26
+    Width = 141
+    Caption = 'Data Barang'
+    Font.CharSet = ANSI_CHARSET
+    Font.Height = -24
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object ECari: TEdit
+    Left = 77
+    Height = 29
+    Top = 78
+    Width = 315
+    Font.CharSet = ANSI_CHARSET
+    Font.Height = -16
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    ParentFont = False
+    TabOrder = 0
+  end
+  object BCari: TButton
+    Left = 400
+    Height = 29
+    Top = 78
+    Width = 75
+    Caption = 'Cari'
+    Font.CharSet = ANSI_CHARSET
+    Font.Height = -16
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    ParentFont = False
+    TabOrder = 1
+    OnClick = BCariClick
+  end
+  object BReset: TButton
+    Left = 480
+    Height = 29
+    Top = 78
+    Width = 75
+    Caption = 'Reset'
+    Font.CharSet = ANSI_CHARSET
+    Font.Height = -16
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    ParentFont = False
+    TabOrder = 2
+    OnClick = BResetClick
+  end
+  object DBGridDataBarang: TDBGrid
+    Left = 77
+    Height = 248
+    Top = 115
+    Width = 478
+    Color = clWindow
+    Columns = <>
+    DataSource = DataSourceDataBarang
+    Font.CharSet = ANSI_CHARSET
+    Font.Height = -16
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    ParentFont = False
+    TabOrder = 3
+    OnCellClick = DBGridDataBarangCellClick
+  end
+  object BTambahBarang: TButton
+    Left = 288
+    Height = 26
+    Top = 384
+    Width = 82
+    Caption = 'Tambah'
+    Font.CharSet = ANSI_CHARSET
+    Font.Height = -16
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    ParentFont = False
+    TabOrder = 4
+    OnClick = BTambahBarangClick
+  end
+  object BUpdateBarang: TButton
+    Left = 392
+    Height = 26
+    Top = 384
+    Width = 70
+    Caption = 'Edit'
+    Font.CharSet = ANSI_CHARSET
+    Font.Height = -16
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    ParentFont = False
+    TabOrder = 5
+    OnClick = BUpdateBarangClick
+  end
+  object BHapusData: TButton
+    Left = 477
+    Height = 26
+    Top = 384
+    Width = 78
+    Caption = 'Hapus'
+    Font.CharSet = ANSI_CHARSET
+    Font.Height = -16
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    ParentFont = False
+    TabOrder = 6
+    OnClick = BHapusDataClick
+  end
+  object DataSourceDataBarang: TDataSource
+    DataSet = SQLQueryDataBarang
+    Left = 429
+    Top = 424
+  end
+  object SQLQueryDataBarang: TSQLQuery
+    IndexName = 'DEFAULT_ORDER'
+    MaxIndexesCount = 4
+    FieldDefs = <    
+      item
+        Name = 'id'
+        DataType = ftAutoInc
+        Precision = -1
+      end    
+      item
+        Name = 'kategori'
+        DataType = ftString
+        Precision = -1
+        Size = 110
+      end    
+      item
+        Name = 'nama'
+        DataType = ftString
+        Precision = -1
+        Size = 30
+      end    
+      item
+        Name = 'gambar'
+        DataType = ftString
+        Precision = -1
+        Size = 100
+      end    
+      item
+        Name = 'harga_beli'
+        DataType = ftFloat
+        Precision = -1
+      end    
+      item
+        Name = 'harga_jual'
+        DataType = ftFloat
+        Precision = -1
+      end    
+      item
+        Name = 'stok'
+        DataType = ftInteger
+        Precision = -1
+      end>
+    Active = True
+    Database = SQLConnector1
+    Transaction = SQLTransaction1
+    SQL.Strings = (
+      'select * from data_barang'
+    )
+    Params = <>
+    Macros = <>
+    Left = 88
+    Top = 424
+  end
+  object SQLTransaction1: TSQLTransaction
+    Active = True
+    Database = SQLConnector1
+    Left = 216
+    Top = 424
+  end
+  object SQLConnector1: TSQLConnector
+    Connected = True
+    LoginPrompt = False
+    DatabaseName = 'penjualan'
+    KeepConnection = False
+    Transaction = SQLTransaction1
+    ConnectorType = 'ODBC'
+    Left = 320
+    Top = 424
+  end
+end

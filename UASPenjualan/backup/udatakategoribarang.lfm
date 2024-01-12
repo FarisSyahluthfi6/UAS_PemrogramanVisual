@@ -1,0 +1,171 @@
+object TfrmDataKategoriBarang: TTfrmDataKategoriBarang
+  Left = 382
+  Height = 330
+  Top = 250
+  Width = 438
+  Caption = 'Data Kategori'
+  ClientHeight = 330
+  ClientWidth = 438
+  OnClose = FormClose
+  OnCreate = FormCreate
+  LCLVersion = '3.0.0.3'
+  object DBGridKategori: TDBGrid
+    Left = 48
+    Height = 182
+    Top = 96
+    Width = 342
+    Color = clWindow
+    Columns = <>
+    DataSource = DataSourceKatagori
+    Font.CharSet = ANSI_CHARSET
+    Font.Height = -16
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    ParentFont = False
+    TabOrder = 0
+    OnCellClick = DBGridKategoriCellClick
+  end
+  object Label1: TLabel
+    Left = 128
+    Height = 30
+    Top = 16
+    Width = 210
+    Caption = 'Data Kategori Barang'
+    Font.CharSet = ANSI_CHARSET
+    Font.Height = -21
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object BtnDelete: TButton
+    Left = 144
+    Height = 24
+    Top = 288
+    Width = 72
+    Caption = 'Hapus'
+    Font.CharSet = ANSI_CHARSET
+    Font.Height = -16
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    ParentFont = False
+    TabOrder = 1
+    OnClick = BtnDeleteClick
+  end
+  object BtnCari: TButton
+    Left = 240
+    Height = 29
+    Top = 62
+    Width = 72
+    Caption = 'Cari'
+    Font.CharSet = ANSI_CHARSET
+    Font.Height = -16
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    ParentFont = False
+    TabOrder = 2
+    OnClick = BtnCariClick
+  end
+  object ECari: TEdit
+    Left = 48
+    Height = 29
+    Top = 62
+    Width = 184
+    Font.CharSet = ANSI_CHARSET
+    Font.Height = -16
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    ParentFont = False
+    TabOrder = 3
+    TextHint = 'Cari'
+  end
+  object BtnReset: TButton
+    Left = 320
+    Height = 29
+    Top = 62
+    Width = 70
+    Caption = 'Reset'
+    Font.CharSet = ANSI_CHARSET
+    Font.Height = -16
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    ParentFont = False
+    TabOrder = 4
+    OnClick = BtnResetClick
+  end
+  object BtnAddKategori: TButton
+    Left = 320
+    Height = 24
+    Top = 288
+    Width = 70
+    Caption = 'Tambah'
+    Font.CharSet = ANSI_CHARSET
+    Font.Height = -16
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    ParentFont = False
+    TabOrder = 5
+    OnClick = BtnAddKategoriClick
+  end
+  object BtnUpdate: TButton
+    Left = 232
+    Height = 26
+    Top = 288
+    Width = 74
+    Caption = 'Update'
+    Font.CharSet = ANSI_CHARSET
+    Font.Height = -16
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    ParentFont = False
+    TabOrder = 6
+    OnClick = BtnUpdateClick
+  end
+  object SQLQueryKategori: TSQLQuery
+    IndexName = 'DEFAULT_ORDER'
+    MaxIndexesCount = 4
+    FieldDefs = <    
+      item
+        Name = 'id'
+        DataType = ftAutoInc
+        Precision = -1
+      end    
+      item
+        Name = 'nama'
+        DataType = ftString
+        Precision = -1
+        Size = 100
+      end>
+    Database = SQLConnector1
+    Transaction = SQLTransaction1
+    SQL.Strings = (
+      'select * from kategori'
+    )
+    Params = <>
+    Macros = <>
+    Left = 128
+    Top = 122
+  end
+  object DataSourceKatagori: TDataSource
+    DataSet = SQLQueryKategori
+    Left = 266
+    Top = 122
+  end
+  object SQLTransaction1: TSQLTransaction
+    Active = False
+    Database = SQLConnector1
+    Left = 128
+    Top = 186
+  end
+  object SQLConnector1: TSQLConnector
+    Connected = True
+    LoginPrompt = False
+    DatabaseName = 'penjualan'
+    KeepConnection = False
+    Transaction = SQLTransaction1
+    ConnectorType = 'ODBC'
+    Left = 266
+    Top = 186
+  end
+end
